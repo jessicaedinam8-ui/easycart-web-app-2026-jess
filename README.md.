@@ -1,0 +1,102 @@
+Real-World Applications of Arrays
+1. Introduction
+An array is a data structure used to store multiple values in a single variable. These values are arranged in an ordered collection and can be accessed using indexes.
+Arrays are important in programming because many applications need to work with collections of related information rather than individual values. They are used in online shopping systems, educational systems, banking applications, games, and data analysis.
+2. Real-World Applications of Arrays
+a. E-commerce systems
+Online shopping websites use arrays to organise product information, shopping cart items, prices, and other product details. For example, an online store can store a list of products that customers can select.
+b. Educational systems
+Arrays can store students' examination scores, attendance records, and other related information. A programme can use the stored scores to calculate averages and identify the highest or lowest marks.
+c. Banking applications
+Arrays can hold collections of transaction records that a banking application processes or displays. For example, a programme may work through a collection of transactions to calculate totals.
+d. Gaming applications
+Arrays can store player scores, inventory items, and positions on a game board. They help games organise and process related information.
+e. Data analysis
+Arrays can store numerical data such as temperatures, sales figures, or survey results. Programmes can process these values to calculate totals, averages, and other statistics.
+3. Why Are Arrays Necessary?
+Arrays are necessary because they make it easier to manage collections of related data.
+- Organisation: They group related values under one variable name.
+- Easy access: Individual elements can be accessed using their indexes.
+- Efficient processing: Loops can process many elements without writing separate instructions for every value.
+- Convenience: Programmers can search, add, remove, and update elements using suitable operations.
+- Maintainability: Collections of information are easier to manage than numerous separate variables.
+Arrays are not the best choice for every situation. For example, inserting or removing elements in the middle may require shifting other elements. The appropriate data structure depends on the application's needs.
+4. Selected Application: EasyCart
+The selected application is EasyCart, a Shopping Cart Total Calculator.
+EasyCart is a simple e-commerce demonstration that allows users to view sample products and their prices, add products to a shopping cart, remove individual items, clear the cart, and view the total cost of the selected products.
+The application was developed using three web technologies:
+- HTML: Structures the webpage and its content.
+- CSS: Controls the colours, layout, spacing, and appearance.
+- JavaScript: Handles the products, shopping cart, and total calculations.
+EasyCart is a front-end demonstration. It does not process actual payments or permanently store cart items.
+5. How Arrays Are Used in EasyCart
+This section connects the theory of arrays to the actual application we developed.
+5.1 The products array
+In script.js, we created the following array:
+const products = [
+    { id: 1, name: "T-Shirt", price: 80, icon: "👕" },
+    { id: 2, name: "Shoes", price: 200, icon: "👟" },
+    { id: 3, name: "Bag", price: 120, icon: "👜" }
+];
+
+
+This is an array named products. It stores three product objects. Each object contains a product ID, name, price, and icon.
+The application uses this array to display the products available for selection.
+5.2 The cart array
+The following line creates the shopping cart array:
+const cart = [];
+
+
+The array begins empty because the user has not selected any products yet.
+When a user adds a product, the application stores that product in the cart array. A product can be added more than once, so the same item may appear multiple times.
+5.3 Adding products using push()
+cart.push(product);
+
+
+The push() method adds the selected product to the end of the cart array.
+For example, if the user selects a T-shirt, the T-shirt is added to the cart. If the user selects shoes afterwards, the shoes are added as well.
+5.4 Finding products using find()
+const product = products.find(function(item) {
+    return item.id === productId;
+});
+
+
+The find() method searches the products array and returns the first product whose ID matches the selected product ID.
+This allows the application to identify which product the user clicked before adding it to the cart.
+5.5 Calculating the total using forEach()
+let total = 0;
+
+cart.forEach(function(item) {
+    total += item.price;
+});
+
+
+The forEach() method goes through each item in the cart array. The programme adds the price of each item to the total variable.
+For example, if the user selects a T-shirt costing GH₵80 and shoes costing GH₵200, the calculation is:
+\[
+\text{Total} = 80 + 200 = \text{GH₵}280
+\]
+
+The total changes whenever the contents of the cart change.
+5.6 Removing an item using splice()
+cart.splice(index, 1);
+
+
+The splice() method removes one item from the cart array at the specified index.
+When the user clicks the Remove button beside a product, the programme removes that item and recalculates the total.
+5.7 Clearing the cart
+cart.length = 0;
+
+
+Setting the cart array's length to zero removes all its elements. This allows the user to clear the shopping cart and start again.
+5.8 Displaying the products using forEach()
+The displayProducts() function also uses products.forEach() to go through the products array and generate a product card for each product.
+This means the programme can display the products by processing the array rather than creating each product card separately.
+6. Testing the Application
+The application can be tested using the following steps:
+1. Open EasyCart in a web browser.
+2. Add a T-shirt and check whether the total becomes GH₵80.00.
+3. Add shoes and check whether the total becomes GH₵280.00.
+4. Remove the T-shirt and check whether the total returns to GH₵200.00.
+5. Clear the cart and check whether the total becomes GH₵0.00.
+These tests demonstrate how changes to the cart array affect the displayed total.
