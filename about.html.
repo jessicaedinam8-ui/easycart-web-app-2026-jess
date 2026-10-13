@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About EasyCart</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .about-content {
+            max-width: 850px;
+            margin: 35px auto;
+            padding: 25px;
+            background: white;
+            border-radius: 16px;
+            line-height: 1.8;
+        }
+        .about-content h2,
+        .about-content h3 {
+            color: #7041a6;
+        }
+        .about-content pre {
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+            background: #f4effb;
+            padding: 14px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 16px;
+            background: #7041a6;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>About EasyCart</h1>
+        <p>Real-World Applications of Arrays</p>
+    </header>
+
+    <main class="about-content">
+        <h2>1. Introduction</h2>
+        <p>An array is a data structure used to store multiple values in a single variable. The values are arranged in an ordered collection and can be accessed using indexes. Arrays are used in online shopping, education, banking, gaming, and data analysis.</p>
+
+        <h2>2. Real-World Applications of Arrays</h2>
+        <h3>E-commerce systems</h3>
+        <p>Arrays organise product information, shopping cart items, and prices.</p>
+        <h3>Educational systems</h3>
+        <p>Arrays can store examination scores and attendance records.</p>
+        <h3>Banking applications</h3>
+        <p>Arrays can hold collections of transaction records for processing.</p>
+        <h3>Gaming applications</h3>
+        <p>Arrays can store player scores, inventory items, and game-board positions.</p>
+        <h3>Data analysis</h3>
+        <p>Arrays can store numerical data for calculating totals and averages.</p>
+
+        <h2>3. Why Are Arrays Necessary?</h2>
+        <ul>
+            <li>They group related values under one variable name.</li>
+            <li>They make individual elements accessible by index.</li>
+            <li>Loops can process many values with less repetitive code.</li>
+            <li>They support operations such as searching, adding, and removing elements.</li>
+            <li>They make collections of data easier to manage.</li>
+        </ul>
+        <p>However, some array operations, such as inserting or removing elements in the middle, may require shifting other elements.</p>
+
+        <h2>4. Selected Application: EasyCart</h2>
+        <p>EasyCart is a Shopping Cart Total Calculator. Users can view sample products and prices, add products to a cart, remove items, clear the cart, and view the total cost.</p>
+        <ul>
+            <li><strong>HTML:</strong> Structures the webpage.</li>
+            <li><strong>CSS:</strong> Controls its appearance.</li>
+            <li><strong>JavaScript:</strong> Manages products, the cart, and calculations.</li>
+        </ul>
+        <p>EasyCart is a front-end demonstration. It does not process actual payments or permanently store cart items.</p>
+
+        <h2>5. How Arrays Are Used in EasyCart</h2>
+
+        <h3>5.1 The products array</h3>
+        <pre>const products = [
+    { id: 1, name: "T-Shirt", price: 80, icon: "👕" },
+    { id: 2, name: "Shoes", price: 200, icon: "👟" },
+    { id: 3, name: "Bag", price: 120, icon: "👜" }
+];</pre>
+        <p>The products array stores three product objects, each containing an ID, name, price, and icon. It is used to display the available products.</p>
+
+        <h3>5.2 The cart array</h3>
+        <pre>const cart = [];</pre>
+        <p>The cart array begins empty and stores products selected by the user. Items are held in memory while the page is open and are not permanently saved.</p>
+
+        <h3>5.3 Adding products with push()</h3>
+        <pre>cart.push(product);</pre>
+        <p>The push() method adds the selected product to the end of the cart array.</p>
+
+        <h3>5.4 Finding products with find()</h3>
+        <pre>const product = products.find(function(item) {
+    return item.id === productId;
+});</pre>
+        <p>The find() method searches for the product with the matching ID.</p>
+
+        <h3>5.5 Calculating the total with forEach()</h3>
+        <pre>let total = 0;
+
+cart.forEach(function(item) {
+    total += item.price;
+});</pre>
+        <p>The forEach() method visits each cart item and adds its price to the total. For example, a T-shirt costing GH₵80 and shoes costing GH₵200 produce a total of GH₵280.</p>
+
+        <h3>5.6 Removing an item with splice()</h3>
+        <pre>cart.splice(index, 1);</pre>
+        <p>The splice() method removes one item from the cart at the specified index.</p>
+
+        <h3>5.7 Clearing the cart</h3>
+        <pre>cart.length = 0;</pre>
+        <p>Setting the array's length to zero removes all its elements.</p>
+
+        <h3>5.8 Displaying products with forEach()</h3>
+        <p>The displayProducts() function uses products.forEach() to create a product card for each item in the products array.</p>
+
+        <h2>6. Testing the Application</h2>
+        <ol>
+            <li>Add a T-shirt and check for a total of GH₵80.00.</li>
+            <li>Add shoes and check for a total of GH₵280.00.</li>
+            <li>Remove the T-shirt and check for a total of GH₵200.00.</li>
+            <li>Clear the cart and check for a total of GH₵0.00.</li>
+        </ol>
+        <p>These are the expected results to verify by testing the application in a browser.</p>
+
+        <a class="back-link" href="index.html">← Back to EasyCart</a>
+    </main>
+</body>
+</html>
